@@ -1,0 +1,610 @@
+:root {
+  --pink: #e84393; /*:root seçicisi, CSS değişkenlerini tanımlamak için kullanılan bir yerdir.*/
+}
+* {
+  margin: 0; /*Eleman dışındaki boşluğu temizler*/
+  padding: 0; /* elemanın içeriği ile sınırı arasındaki boşluğu temizler*/
+  box-sizing: border-box; /*, elemanların boyutlandırma modelini değiştirir. "border-box" olarak ayarlandığında, bir elemanın genişliği ve yüksekliği, içeriği, padding'i ve sınırı dahil eder, ekstra boşluk eklemeksizin.*/
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /*Yazı tipi*/
+  outline: none; /*, öğelerin odaklandığında (örneğin, bir bağlantı tıklanarak) varsayılan vurgu çerçevesini (outline) kaldırır*/
+  border: none; /*Bu kural, öğelerin etrafındaki sınır (border) stilini kaldırır*/
+  text-decoration: none; /*bağlantılar için metin dekorasyonunu kaldırır*/
+  text-transform: capitalize; /*i her kelimenin baş harfinin büyük olduğu bir biçimde düzenler*/
+  transition: 0.2s linear; /*0.2 saniye süren bir geçiş kullanılmış ve geçişin lineer (linear) bir hızla */
+}
+
+htlm {
+  font-size: 62.5%; /*Varsayılan metin boyu*/
+  scroll-behavior: smooth; /*sayfa üzerindeki kaydırma davranışını belirler. "smooth" değeri sayfanın yumuşak bir şekilde kaydırılmasını sağlar*/
+  scroll-padding-top: 6rem; /*Bu kural, sayfanın en üstüne kaydırırken ekstra bir boşluk bırakır*/
+  overflow-x: hidden; /*Yani, içeriğin öğenin yatay sınırları dışına taşmasını engeller ve gerektiğinde kaydırmayı sağlamaz.*/
+}
+
+section {
+  padding: 2rem 9%; /*çeriği ile etrafındaki sınırlar (border) arasına 2 rem yükseklikte bir iç boşluk ekler,9% ise sadece yatayda 9% boşluk ekler */
+}
+
+.heading {
+  /*.heading sınıfına sahip hepsi*/
+  text-align: center; /*metni yatayda merkezlemek*/
+  font-size: 4rem; /*metin boyutunu 4 rem olarak ayarlar*/
+  color: #333;
+  padding: 1rem; /*başlıkların içeriği ile etrafındaki sınırlar (border) arasına yukarıdan ve aşağıdan 1 rem iç boşluk (padding) ekler*/
+  margin: 2 rem 0; /*başlıkların üst ve alt kenarlarına 2 rem boşluk (margin) ekler*/
+  background: rgba(
+    255,
+    51,
+    153,
+    0.05
+  ); /*başlıkların arka plan rengini belirler*/
+}
+
+/*heading sınıfına sahip HTML başlıklarının içinde yer alan <span> elementlerinin metin rengini bir özel CSS değişkeni olan --pink ile ayarlar*/
+.heading span {
+  color: var(--pink);
+}
+
+.btn {
+  /*.btn sınıfına sahip tüm öğeleri hedefler*/
+  display: inline-block; /*düğmelerin (butonların) iç içe geçmemesini ve yan yana sıralanmasını sağlar*/
+  margin-top: 1rem; /* üst kısmına 1 rem boşluk (margin) ekler*/
+  border-radius: 5rem; /*düğmelerin kenarlarını yuvarlar. 5rem*/
+  background: #333; /*düğmelerin arka plan rengi*/
+  color: #fff; /*düğmelerin metin rengini beyaz*/
+  padding: 0.9rem 3.5rem; /*düğmelerin içeriği ile etrafındaki sınırlar (border) arasına 0.9 rem yükseklikte ve 3.5 rem genişlikte bir iç boşluk (padding) ekler*/
+  cursor: pointer; /*bu nedenle imleç düğme üzerine geldiğinde işaretçi şeklinde görünür*/
+  font-size: 1.7rem; /*metin boyutunu 1.7 rem*/
+}
+
+.btn:hover {
+  /*.btn sınıfına sahip tüm öğelerin üzerine gelindiğinde (hover durumu)*/
+  background: var(--pink);
+}
+
+header {
+  position: fixed; /*sayfa kaydırılsa bile başlık (header) ekranın üstünde sabit kalır.*/
+  top: 0;
+  left: 0;
+  right: 0; /* tüm yatay yönde genişliğini kaplar. top: 0 ile üst kısmına yapışık olur, left: 0 ile sol kenara, ve right: 0 ile sağ kenara yapışık olur.*/
+  background: #fff; /*<header> elementinin arka plan rengini beyaz*/
+  padding: 2rem 9%; /* 2 rem üst ve alt boşluk, sol ve sağda ise yüzde 9'luk bir boşluk bırakır. */
+  display: flex; /*çeriğin içindeki öğelerin birbirine göre esnek bir düzen içinde olmasını sağlar. */
+  align-items: center; /*Bu kural, içeriğin yatay eksende ortalanmasını sağlar.*/
+  justify-content: space-between; /*atay eksende boşluğu iki kenara doğru dağıtmasını sağlar*/
+  z-index: 1000; /*Z-indeks, öğelerin üst üste binme sırasını belirler. 1000, diğer öğelerden daha üstte yer aldığını gösterir.*/
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* elementine hafif bir gölge (shadow) ekler*/
+}
+
+header .logo {
+  /*Flower yazısı*/
+  font-size: 3rem; /*Flower yazısı boyutu*/
+  color: #333; /*Flower yazısı rengi*/
+  font-weight: bolder; /*Flower yazısı tipinin kalınlığını artırır.*/
+}
+
+header .logo span {
+  /*<header> içinde bulunan .logo sınıfına sahip öğelerin içindeki <span> elementlerini hedefler */
+  color: var(--pink);
+}
+
+header .navbar a {
+  font-size: 2rem; /*.logo sınıfına sahip <span> elementlerinin metin boyutunu 2 rem*/
+  padding: 0 1.5rem; /* .logo sınıfına sahip <span> elementlerinin içerisindeki içeriğin sol ve sağ kenarlarına 1.5 rem boşluk ekler*/
+  color: #666; /*Rengi*/
+}
+
+header .navbar a:hover {
+  color: var(--pink);
+}
+
+header .icons a {
+  font-size: 2.5rem; /*metin boyutunu 2.5 rem olarak ayarlar*/
+  color: #333; /*İkon rengi*/
+  margin-left: 1.5rem; /* sol kenarlarından 1.5 rem boşluk bırakır*/
+}
+
+header .icons a:hover {
+  /*.icons sınıfına sahip bağlantıların üzerine geldiğinizde (hover durumu)*/
+  color: var(--pink); /*pink adlı özel bir CSS değişkeni ile ayarlar*/
+}
+
+header #toggler {
+  /*header> elementi içindeki #toggler kimliğine sahip bir öğeyi hedefler*/
+  display: none; /*#toggler öğesinin görünürlüğünü "none" olarak ayarlar*/
+}
+
+header .fa-bars {
+  /*<header> elementi içindeki .fa-bars sınıfına sahip öğeleri hedefler*/
+  font-size: 3rem; /*fa-bars sınıfına sahip öğelerin metin boyutunu 3 rem*/
+  color: #333;
+  border-radius: 0.5rem; /* öğenin kenar köşelerine .5 rem yarıçapında bir yuvarlak köşe ekler*/
+  padding: 0.5rem 1.5rem; /*öğenin içeriğinin üst ve alt tarafına .5 rem, sol ve sağ tarafına ise 1.5 rem iç boşluk ekler*/
+  cursor: pointer; /*fare imlecinin el işareti şeklini almasını sağlar*/
+  border: 0.1rem solid rgba(0, 0, 0, 0.3); /*ğenin etrafında .1 rem kalınlığında ve yarısaydam bir sınır (border) oluşturur*/
+  display: none; /*fa-bars sınıfına sahip öğelerin varsayılan olarak görünmez olmasını sağlar*/
+}
+
+/*Header bitti*/
+/*Home geçiş yaptık*/
+
+.home {
+  display: flex; /*.home sınıfına sahip öğenin içeriğini bir flex konteyner olarak düzenler*/
+  align-items: center; /*Bu, içerik öğelerinin sayfanın ortasına hizalanmasını sağlar*/
+  min-height: 100vh; /*sayfanın tamamını kaplayacak bir yükseklik sağlar*/
+  background: url(Fotograflar/lale2.webp) no-repeat;
+  background-size: cover; /*arka plan resminin boyutunu sayfanın boyutuyla uyumlu olacak şekilde otomatik olarak ayarlar*/
+  background-position: center; /*Bu kural, arka plan resminin sayfanın merkezine hizalanmasını sağlar*/
+}
+
+.home .content {
+  /*.home içinde bulunan- .content sınıfına sahip öğeyi hedefler.*/
+  max-width: 50rem; /* maksimum genişliğini 50 rem olarak sınırlar*/
+}
+
+.home .content h3 {
+  /*.home sınıfına sahip bir öğenin içindeki .content sınıfına sahip bir öğenin içinde bulunan tüm <h3> başlıklarını hedefler.*/
+  font-size: 6rem; /*<h3> başlıklarının metin boyutunu 6 rem olarak ayarlar*/
+  color: #333; /*<h3> başlıklarının metin rengini #333*/
+}
+
+.home .content span {
+  /*.home sınıfına sahip bir öğenin içindeki .content sınıfına sahip bir öğenin içinde bulunan tüm <span> elementlerini hedefler*/
+  font-size: 3.5rem; /*<span> elementlerinin metin boyutunu 3.5 rem olarak ayarlar*/
+  color: var(--pink);
+  padding: 1rem 0; /*içeriği ile etrafındaki sınırlar (border) arasına yukarı ve aşağıda 1 rem iç boşluk (padding) ekler*/
+  line-height: 1.5; /*metin satır aralığını (line-height) 1.5 olarak ayarlar*/
+}
+
+.home .content p {
+  /*.home sınıfına sahip bir öğenin içindeki .content sınıfına sahip bir öğenin içinde bulunan tüm <p> paragraf elementlerini hedefler*/
+  font-size: 1.5rem; /*metin boyutunu 1.5 rem */
+  color: #999;
+  padding: 1rem 0; /*paragraf elementlerinin içeriği ile etrafındaki sınırlar (border) arasına yukarı ve aşağıda 1 rem iç boşluk (padding) ekler*/
+  line-height: 1.5; /* metin satır aralığını (line-height) 1.5 olarak ayarlar*/
+}
+
+.about .row {
+  /*.about sınıfına sahip bir öğenin içindeki .row sınıfına sahip tüm öğeleri hedefler*/
+  display: flex; /*içeriği yan yana hizalamanıza ve hizalamanın otomatik olarak uyum sağlamasına olanak tanır*/
+  align-items: center; /*içerik öğelerini dikey eksende (yükseklik) merkezlemeyi sağlar*/
+  gap: 2rem; /* içerik öğeleri arasında 2 rem boşluk bırakır*/
+  flex-wrap: wrap; /*içerik öğeleri sığışmazsa bir sonraki satıra geçerler*/
+  padding: 2rem 0; /*.row sınıfına sahip öğelerin içeriği ile etrafındaki sınırlar (border) arasına yukarıdan ve aşağıdan 2 rem iç boşluk (padding) ekler*/
+  padding-bottom: 3rem; /*.row sınıfına sahip öğelerin alt kenarına 3 rem boşluk (padding) ekler*/
+}
+
+.about .row .video-container {
+  /*.about sınıfına sahip bir öğenin içinde bulunan .row sınıfına ve bu sınıfın içindeki .video-container sınıfına sahip tüm öğeleri hedefler*/
+  flex: 1 1 40rem; /*flex: 1 özelliği, öğenin esneklik oranını belirler.,kinci değeri, öğenin esnek boyutunu belirler,40rem ise öğenin maksimum genişliğini belirtir*/
+  position: relative; /*öğenin normal konumunu korurken, içeriğin pozisyonunu belirlemek için kullanılır*/
+}
+
+.about .row .video-container video {
+  /*.about sınıfına sahip bir öğenin içinde bulunan .row sınıfına, bu sınıfın içindeki .video-container sınıfına ve bu sınıfın içindeki <video> elementi*/
+  width: 100%; /*<video> elementinin genişliğini yüzde 100 olarak ayarlar*/
+  border: 1.5rem solid #fff; /*videonun çevresine 1.5 rem genişliğinde ve beyaz*/
+  border-radius: 0.5rem; /* videonun köşelerini yuvarlar .5rem*/
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /*videonun altına hafif bir gölge (box shadow) ekler*/
+  height: 100%; /*öğenin yüksekliğini yüzde 100 olarak ayarlar*/
+  object-fit: cover; /* öğenin içeriğini öğenin içine sığdırmak için kullanılır*/
+}
+
+.about .row .video-container h3 {
+  /*.about sınıfına sahip bir öğenin içindeki .row sınıfına, bu sınıfın içindeki .video-container sınıfına ve bu sınıfın içindeki <h3> başlığına sahip tüm öğeleri hedefler*/
+  position: absolute; /* başlığının pozisyonunu belirler*/
+  top: 50%; /* (muhtemelen .video-container) yüksekliğinin ortasına yerleştirir*/
+  transform: translateY(
+    -50%
+  ); /*başlığın dikey olarak tam ortalanmasını sağlar*/
+  font-size: 3rem;
+  background: #fff;
+  width: 100%; /*başlığın genişliğini yüzde 100 olarak ayarlar*/
+  padding: 1rem 2rem; /*başlığın içeriği ile etrafındaki sınırlar (border) arasına yukarıdan ve alttan 1 rem, sağdan ve soldan 2 rem iç boşluk (padding) ekler*/
+  text-align: center; /*başlığın metin hizalamasını ortala (center) olarak ayarlar*/
+  mix-blend-mode: screen; /*metni ve altındaki arka plan rengini birleştirmek için kullanılır*/
+}
+
+/*Video ve yazılar yan yana oldu*/
+.about .row .content {
+  /*.about sınıfına sahip bir öğenin içindeki .row sınıfına ve bu sınıfın içindeki .content sınıfına sahip tüm öğeleri hedefler*/
+  flex: 1 1 40rem; /*.content sınıfına sahip öğenin flex özelliklerini ayarlar, lex: 1 özelliği, öğenin esneklik oranını belirler,kinci değeri, öğenin esnek boyutunu belirler, 40rem ise öğenin maksimum genişliği*/
+}
+
+.about .row .content h3 {
+  font-size: 3rem;
+  color: #333;
+}
+
+.about .row .content p {
+  font-size: 1.5rem;
+  color: #999;
+  padding: 0.5rem 0;
+  padding-top: 1rem;
+  line-height: 1.5;
+}
+
+/*media quaries*/
+@media (max-width: 991px) {
+  /*@media sorgusu, tarayıcının ekran genişliğinin 991 piksel veya daha dar olduğu durumu hedefler. */
+
+  html {
+    font-size: 55%; /* metin boyutunu yüzde 55 olarak ayarlar*/
+  }
+
+  header {
+    /*bu kurallar yalnızca sayfanın (header) bölümünü etkiler.*/
+    padding: 2rem; /*<header> elementinin içeriği ile dış sınırları arasına 2 remlik iç boşluk ekler*/
+  }
+
+  section {
+    /*<section> elementlerini hedefler ve bu elementlerin içeriği ile etrafındaki sınırlar (padding) arasında 2 rem yükseklikte bir iç boşluk (padding) oluşturur. */
+    padding: 2rem;
+  }
+
+  .home {
+    /*.home sınıfına sahip öğenin (muhtemelen bir bölüm veya sayfa) arka planını sol üst köşeye hizalar*/
+    background-position: left;
+  }
+}
+
+@media (max-width: 768px) {
+  /*Bu sorgu, tarayıcının ekran genişliğinin 768 piksel veya daha dar olduğu durumu hedefler*/
+  header .fa-bars {
+    display: block; /*(768 piksel) daraldığında "fa-bars" adlı öğenin görünür hale gelmesini sağlar*/
+  }
+
+  header .navbar {
+    /*<header> içindeki .navbar sınıfına sahip öğeyi hedefler */
+    position: absolute; /*position: absolute;: .navbar öğesini mutlak bir konuma yerleştirir*/
+    top: 100%;
+    left: 0;
+    right: 0; /*öğesini, ekranın üst kısmına (header'ın altına) tam genişlikte genişletir.*/
+    background: #eee; /*.navbar öğesinin arka plan rengini gri*/
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1); /*.navbar öğesinin üst kısmına 0.1 rem kalınlığında ve hafif bir gri sınır ekler*/
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 0,
+      0 0
+    ); /*polygon değeri dört köşeyi belirtir ve bu köşelerin oluşturduğu çokgen, öğenin içeriğini keser veya maskelemiş olur*/
+  }
+
+  header #toggler:checked ~ .navbar {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a {
+    /*<header> içindeki .navbar sınıfına sahip bağlantıları etkiler*/
+    margin: 1.5rem; /*bağlantıların etrafına 1.5 rem boşluk (margin) ekler*/
+    padding: 1.5rem; /*, bağlantıların içeriği ile etrafındaki sınırlar (border) arasına 1.5 rem iç boşluk (padding) ekler*/
+    background: #fff;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1); /* bağlantıların etrafına 0.1 rem kalınlığında ve hafif bir gri sınır (border) ekler*/
+    display: block; /* bağlantıları blok düzeninde görüntüler*/
+  }
+
+  .home .content h3 {
+    /*.home sınıfına sahip bir HTML öğesinin içinde bulunan .content sınıfına sahip öğenin içinde yer alan <h3> başlıklarının metin boyutunu 5 rem */
+    font-size: 5rem;
+  }
+
+  .home .content span {
+    /*<span> elementlerinin metin boyutunu 2.5 rem olarak özelleştirir.*/
+    font-size: 2.5rem;
+  }
+
+  .icons-container .icons h3 {
+    font-size: 2rem;
+  }
+
+  .icons-container .icons spain {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 450px) {
+  /* tarayıcı penceresinin genişliği 450 piksel veya daha az olduğunda media query kullanır*/
+  html {
+    font-size: 50%; /*metin boyutunu yüzde 50 olarak ayarlar*/
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+/* icons containere geçiş yaptık*/
+
+.icons-container {
+  background: #eee; /*icons-containerin arka plan rengini gri yapar*/
+  display: flex; /*.icons-container öğesini bir esnek konteyner olarak ayarlar*/
+  flex-wrap: wrap; /*çeriğin sığdığından fazla geniş olduğu durumlarda öğelerin yeni satırlara kaymasını sağlar.*/
+  gap: 1.5rem; /*öğeler arasında 1.5 rem genişliğinde bir boşluk bırakır*/
+  padding-bottom: 5rem; /*öğesinin alt kenarına 5 rem boşluk ekler*/
+}
+
+.icons-container .icons {
+  /*icons-container sınıfına sahip bir öğenin içinde bulunan .icons sahip tüm öğeler*/
+  background: #fff;
+  border: 1rem solid rgba(0, 0, 0, 0.1); /*.icons öğelerine 1 rem genişliğinde, yarı saydam bir siyah kenarlık ekler*/
+  padding: 2rem; /*icons öğelerinin içeriği ile etrafındaki iç boşluğu (padding) 2 rem*/
+  display: flex; /*icons öğelerini bir esnek konteyner */
+  align-items: center; /*içerik öğeleri dikey olarak ortalanır*/
+  flex: 1 1 25rem; /*öğelerinin esnekliğini, boyutunu ve maksimum genişliğini belirler*/
+}
+
+.icons-container .icons img {
+  /*.icons sınıfına sahip tüm öğelerin içindeki <img> (resim) öğelerini hedefler*/
+  height: 5rem; /*<img> öğelerinin yüksekliğini 5 rem*/
+  margin-right: 2rem; /*<img> öğelerinin sağ taraflarına 2 rem genişliğinde bir sağ boşluk (margin) ekler*/
+}
+
+.icons-container .icons h3 {
+  color: #333;
+  padding-bottom: 0.5rem; /*h3 başlıklarının alt kenarına 0.5 rem boşluk (padding) ekler.*/
+  font-size: 1.5rem; /*h3 başlıklarının metin boyutunu 1.5 rem*/
+}
+
+.icons-container .icon span {
+  color: #555;
+  font-size: 1.3rem;
+}
+
+/*Producta geçtik*/
+
+.products .box-container {
+  display: flex; /*.box-container öğelerini bir esnek konteyner olarak ayarlar*/
+  flex-wrap: wrap; /*içeriğin sığdığından fazla geniş olduğu durumlarda öğelerin yeni satırlara kaymasını sağlar*/
+  gap: 1.5rem; /* öğeler arasında 1.5 rem boşluk bırakır*/
+}
+
+.products .box-container .box {
+  flex: 1 1 30rem; /*öğelerinin esnekliğini, boyutunu ve maksimum genişliğini belirler*/
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /*.box öğelerine gölgeli bir efekt ekler*/
+  border-radius: 0.5rem; /*.box öğelerinin köşelerine 0 sol üst ve sağ alt köşeleri 0.5 rem yarıçapında yuvarlanmış bir kenarlık (border-radius) ekler*/
+  border: 1rem solid rgba(0, 0, 0, 0.1); /*.box öğelerine 1 rem genişliğinde ve yarı saydam bir siyah kenarlık (border) ekler. Kenarlığın rengi rgba(0, 0, 0, 0.1)*/
+  position: relative; /*box öğelerinin pozisyonunu belirler*/
+}
+
+.products .box-container .box .discount {
+  position: absolute; /*discount öğelerini mutlak bir pozisyona ayarlar*/
+  top: 1rem;
+  left: 1rem; /*discount öğelerinin üst kenarının ve sol kenarının sayfanın üstünden ve solundan 1 rem uzaklıkta*/
+  padding: 0.7rem 1rem; /*Üst ve alt kenarlarına 7 rem, sol ve sağ kenarlarına 1 rem iç boşluk ekler*/
+  font-size: 2rem;
+  color: var(--pink);
+  background: rgba(255, 51, 153, 0.05);
+  z-index: 1; /*öğelerin diğer sayfa öğelerinin üzerinde görüntülenmesini sağlar*/
+  border-radius: 0.5rem; /* 0.5 rem yarıçapında yuvarlanmış bir kenarlık*/
+}
+
+.products .box-container .box .image {
+  position: relative; /*image öğelerine göreceli bir pozisyon atar*/
+  text-align: center; /*image öğelerinin içeriğini yatayda merkeze hizalar*/
+  padding-top: 2rem; /*.image öğelerinin üst kenarına 2 rem boşluk (padding) ekler*/
+  overflow: hidden; /*image öğelerinin içeriğinin taşmasını engeller. Eğer içerik öğenin sınırlarını aşıyorsa, bu içerik kesilir ve görüntülenmeyen kısmı gizlenir*/
+}
+
+.products .box-container .box .image img {
+  height: 25rem; /*<img> öğelerinin yüksekliğini 25 rem olarak ayarlar*/
+}
+
+.products .box-container .box:hover .image img {
+  transform: scale(1.1); /*resimlerin boyutunu 1.1 katına büyütür*/
+}
+
+.products .box-container .box .image .icons {
+  position: absolute; /*icons öğelerini mutlak bir pozisyona ayarlar. Bu, öğelerin normal akıştan çıkmasını ve belirtilen koordinatlarda yerleştirilmesini sağlar*/
+  bottom: -7rem; /*.icons öğelerini içerik kutusunun alt kenarına yerleştirir*/
+  left: 0;
+  right: 0; /*.icons öğelerini içerik kutusunun sol ve sağ kenarlarına sıfır mesafede yerleştirir*/
+  display: flex; /*.icons öğelerini bir esnek konteyner olarak ayarlar*/
+}
+
+.products .box-container .box:hover .image .icons {
+  bottom: 0; /*.box öğeleri üzerine gelindiğinde .icons öğelerinin altta görünmesini sağlar*/
+}
+
+.products .box-container .box .image .icons a {
+  height: 5rem; /*<a> öğelerinin yüksekliği 5 rem*/
+  line-height: 5rem; /*<a> öğeleri satır yüksekliği 5 rem*/
+  font-size: 2rem;
+  width: 50%; /* genişliği %50*/
+  background: var(--pink);
+  color: #fff; /*metin rengi beyaz */
+}
+
+.products .box-container .box .image .icons .cart-btn {
+  border-left: 0.1rem solid #fff7; /* .cart-btn öğesinin sol ve sağ kenarlarına beyaz (#fff) bir çizgi ekler. Bu çizgiler, öğeyi çerçevelemek veya vurgulamak için kullanılabilir*/
+  border-right: 0.1rem solid #fff7;
+  width: 100%; /*cart-btn öğesinin genişliğini %100 yapar*/
+}
+
+.products .box-container .box .image .icons a:hover {
+  background: #333;
+}
+
+.products .box-container .box .content {
+  padding: 2rem; /*Bu, içerik kutularının içindeki içeriğin kenarlarından 2 rem uzakta olmasını sağlar*/
+  text-align: center; /*Metnini ortalamak için metin hizalamasını merkeze ayarlar*/
+}
+
+.products .box-container .box .content h3 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.products .box-container .box .content .price {
+  font-size: 2.5rem;
+  color: var(--pink);
+  font-weight: bolder;
+  padding-top: 1rem;
+}
+
+.products .box-container .box .content .price span {
+  font-size: 1.5rem;
+  color: #999;
+  font-weight: lighter;
+  text-decoration: line-through; /*metin içeriğinin üzerine çizgi8 */
+}
+
+/*Product kısmı bitti*/
+
+.review .box-container {
+  display: flex;
+  flex-wrap: wrap; /* içeriğin ekrana sığmaması durumunda satır atlamasını sağlar*/
+  gap: 1.5rem; /*çerik kutuları arasındaki boşluğu 1.5 rem*/
+}
+
+.review .box-container .box {
+  flex: 1 1 30rem; /*box öğelerinin esnek bir öğe olarak davranmasını ve içeriğin boyutunu belirler,flex özelliği, öğenin büyüme, büyüme sınırlaması ve başlangıç boyutunu belirtir*/
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /* Gölge, 0 yatay, 0 dikey uzaklıkta, 1.5 rem bulanıklıkta ve rgba(0, 0, 0, 0.1) renkte olacak şekilde ayarlanmıştır*/
+  border-radius: 0.5rem; /*kenar köşelerine 0.5 rem yarıçapında yuvarlak köşeler ekler*/
+  padding: 3rem 2rem; /*iç kenar dolgusunu üst ve altta 3 rem, sol ve sağda 2 rem olarak ayarlar*/
+  position: relative; /*.box öğelerini nispeten pozisyonlandırır*/
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.review .box-container .box .fa-quote-right {
+  position: absolute; /*simgenin mutlak pozisyonda yer almasını sağlar*/
+  bottom: 3rem;
+  right: 3rem; /* alt kenarından 3 rem ve sağ kenardan 3 rem uzaklıkta olmasını sağlar*/
+  font-size: 6rem;
+  color: #eee;
+}
+
+.review .box-container .box .stars i {
+  color: var(--pink);
+  font-size: 2rem;
+}
+
+.review .box-container .box p {
+  color: #999;
+  font-size: 1.5rem;
+  line-height: 1.5; /*satır yüksekliğini 1.5 olarak ayarlar*/
+  padding-top: 2rem; /*paragraf metinlerinin üst kenardan 2 rem uzakta başlamasını sağlar*/
+}
+
+.review .box-container .box .user {
+  display: flex; /*.user içeriğini bir flex konteyner olarak düzenler. Bu, içerik öğelerini yatayda hizalar ve düzenler*/
+  align-items: center; /*içeriği yatayda merkeze hizalar*/
+  padding-top: 2rem; /*user içeriğinin üst kenardan 2 rem uzakta başlamasını sağlar*/
+}
+
+.review .box-container .box .user img {
+  height: 6rem;
+  width: 6rem; /* resmin yüksekliğini ve genişliğini sırasıyla 6 rem olarak ayarlar*/
+  border-radius: 50%; /*resmin kenar köşelerine yuvarlak bir şekil ekler*/
+  object-fit: cover; /*resmin kırpmadan veya bozulmadan sığmasını sağlar*/
+  margin-right: 1rem; /*resmin sağ tarafına 1 rem boşluk ekler*/
+}
+
+.review .box-container .box .user h3 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.review .box-container .box .user span {
+  font-size: 1.5rem;
+  color: #999;
+}
+
+/*Review kısmı bitti*/
+/*Contact Us kısmı başlıyor*/
+
+.review .box-container .box .user span {
+  font-size: 1.5rem;
+  color: #999;
+}
+
+.contact .row {
+  display: flex; /*, içerik öğelerini yatayda hizalar ve düzenler*/
+  flex-wrap: wrap; /*öğelerinin sığmaması durumunda yeni bir satıra geçmelerini sağlar*/
+  gap: 1.5rem; /*öğeleri arasında 1.5 rem boşluk */
+  align-items: center; /*öğelerini dikey eksende merkeze hizalar*/
+}
+
+.contact .row form {
+  flex: 1 1 40rem; /* formun esnekliğini ayarlar ve formun içeriği ile ilişkili olarak genişlemesini ve daralmasını sağlar. 1 1 40rem*/
+  padding: 2rem 2.5rem; /*iç kenarlardan (padding) 2 rem üst kenardan ve alt kenardan, 2.5 rem ise sağ ve sol kenardan boşluk ekler*/
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); /*gölge*/
+  border: 0.1rem solid rgba(0, 0, 0, 0.1); /*, formun kenarlarına ince bir kenar çizgisi ekler*/
+  background: #fff;
+  border-radius: 0.5rem; /*formun köşelerine yuvarlak bir şekil ekler*/
+}
+
+.contact .row .image {
+  flex: 1 1 40rem; /*1 1 40rem; değerleri, öğenin minimum genişlik (40 rem) ve esnekliği belirler*/
+}
+
+.contact .row .image img {
+  width: 100%; /*içeriğin (resmin) genişliğini yüzde olarak ayarlar*/
+}
+
+.contact .row form .box {
+  padding: 1rem; /*.box içeriğinin iç kenarlarına (padding) 1 rem boşluk ekler*/
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none; /*metin büyük harf veya küçük harf dönüşümü uygulanmaz*/
+  border: 0.1rem solid rgba(0, 0, 0, 0.1); /*Kenar çizgisi, siyah rengin hafif bir yarı saydam tonuyla oluşturulur*/
+  border-radius: 0.5rem; /* hafifçe yuvarlak bir şekil*/
+  margin: 0.7rem 0; /* öğeler arasında 0.7 rem üst ve alt boşluk bırakır*/
+  width: 100%; /* genişliğini yüzde olarak ayarlar*/
+}
+
+.contact .row form .box:focus {
+  border-color: var(--pink);
+}
+
+.contact .row form textarea {
+  height: 15rem; /*metin alanlarının yüksekliğini 15 rem*/
+  resize: none; /*metin alanlarını yeniden boyutlandırmalarını engeller*/
+}
+
+/*Contact kısmı bitti*/
+/*Footer kısmı başlıyor*/
+
+.footer .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer .box-container .box {
+  flex: 1 1 25rem;
+}
+
+.footer .box-container .box h3 {
+  color: #333;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+  display: block;
+  color: #666;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+.footer .box-container .box img {
+  margin-top: 1rem;
+}
+
+.footer .credit {
+  text-align: center;
+  padding: 1.5rem;
+  motion-path: 1.5rem;
+  padding-top: 2.5rem;
+  font-size: 2rem;
+  color: #333;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.footer .credit span {
+  color: var(--pink);
+}
